@@ -1,7 +1,20 @@
 <?php
 
 namespace app\api\controller\cms;
+/**
+ * @apiDefine IsOptional
+ * @apiParam [page] 当前页
+ * @apiParam [count] 分页数量
+ */
 
+/**
+ * @apiDefine Authorization
+ * @apiHeader {String} Authorization 用户授权token
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "Bearer access_token",
+ *     }
+ */
 //use app\api\validate\user\LoginForm;  # 开启注释验证器以后，本行可以去掉，这里做更替说明
 //use app\api\validate\user\RegisterForm; # 开启注释验证器以后，本行可以去掉，这里做更替说明
 use app\api\service\admin\User as UserService;
@@ -60,14 +73,17 @@ class User
     }
 
     /**
-     * @param Request $request
-     * @validate('LoginForm')
-     * @return array
-     * @throws DataNotFoundException
-     * @throws DbException
-     * @throws ModelNotFoundException
-     * @throws NotFoundException
-     * @throws AuthFailedException
+     * @api {post} /cms/user/login 用户登录
+     * @apiName userLogin
+     * @apiVersion 1.0.0
+     * @apiGroup 用户模块
+     * @apiParam {String} username 用户名
+     * @apiParam {String} password 密码
+     * @apiSuccessExample Success-Response:
+     *     {
+     *       "access_token": "", token授权
+     *       "refresh_token": "" token授权过期传refresh_token获取access_token
+     *     }
      */
     public function userLogin(Request $request)
     {

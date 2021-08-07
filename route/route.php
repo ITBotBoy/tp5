@@ -84,7 +84,11 @@ Route::group('', function () {
             // 删除图书
             Route::delete(':bid', 'api/v1.Book/delete');
         });
-
+        Route::group('king', function () {
+            // 查询指定bid的分类
+            Route::get(':class/:id', 'api/v1.King/getKing');
+            Route::get('', 'api/v1.King/getAllKing');
+        });
     });
 })->middleware(['Authentication', 'ReflexValidate'])->allowCrossDomain();
 

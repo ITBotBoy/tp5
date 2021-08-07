@@ -1,0 +1,16 @@
+{
+  "name": "tp5",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">   <a href=\"http://doc.cms.7yue.pro/\">   <img src=\"http://doc.cms.7yue.pro/left-logo.png\" width=\"250\"/></a>   <br>   Lin-CMS-TP5 </h1>",
+  "main": "index.js",
+  "scripts": {
+    "docs": "apidoc -i application/api -o docs/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "apidoc": {
+    "title": "ServiceAPIs",
+    "url": "http://localhost:5000"
+  },
+  "author": "renserve",
+  "license": "ISC"
+}
