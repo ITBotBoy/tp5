@@ -85,6 +85,16 @@ class User
      *       "refresh_token": "" token授权过期传refresh_token获取access_token
      *     }
      */
+    /**
+     * @param Request $request
+     * @validate('LoginForm')
+     * @return array
+     * @throws DataNotFoundException
+     * @throws DbException
+     * @throws ModelNotFoundException
+     * @throws NotFoundException
+     * @throws AuthFailedException
+     */
     public function userLogin(Request $request)
     {
         $username = $request->post('username');

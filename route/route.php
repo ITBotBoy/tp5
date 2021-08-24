@@ -86,8 +86,10 @@ Route::group('', function () {
         });
         Route::group('king', function () {
             // 查询指定bid的分类
-            Route::get(':class/:id', 'api/v1.King/getKing');
-            Route::get('', 'api/v1.King/getAllKing');
+            Route::get(':class/:id', 'api/v1.King/getKingId');
+            Route::delete(':class/:id', 'api/v1.King/deleteKing');
+            Route::get('', 'api/v1.King/getKing');
+            Route::post('', 'api/v1.King/saveKing');
         });
     });
 })->middleware(['Authentication', 'ReflexValidate'])->allowCrossDomain();

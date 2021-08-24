@@ -11,7 +11,7 @@ namespace app\api\model\game\king;
 
 use think\Model;
 
-class KingOutfit extends Model
+class KingOne extends Model
 {
     public static function searchKing($offset, $count, $params = [])
     {

@@ -11,7 +11,7 @@ namespace app\api\model\game\king;
 
 use think\Model;
 
-class KingInscription extends Model
+class KingTwo extends Model
 {
     public static function searchKing($offset, $count, $params = [])
     {

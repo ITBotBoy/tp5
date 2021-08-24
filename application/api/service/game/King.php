@@ -2,18 +2,18 @@
 
 namespace app\api\service\game;
 
-use app\api\model\game\king\KingHero;
-use app\api\model\game\king\KingInscription;
-use app\api\model\game\king\KingOutfit;
+use app\api\model\game\king\KingOne;
+use app\api\model\game\king\KingThree;
+use app\api\model\game\king\KingTwo;
 function getModelMap($class){
-    return array(new KingHero(),new KingOutfit(),new KingInscription())[$class];
+    return array(new KingOne(),new KingTwo(),new KingThree())[$class];
 }
 
 
 use think\Model;
 class King extends Model
 {
-    public static function searchKing($page,$count,$class,$type,$name)
+    public static function searchKing($page,$count,$modelId,$class,$type,$name)
     {
         if($count || $page){
             list($offset, $count) = paginate($count, $page);
@@ -21,7 +21,7 @@ class King extends Model
             $offset=0;
         }
 
-        $params = ['name' => $name, 'type' => $type];
+        $params = ['name' => $name, 'type' => $type,'modelId'=>$modelId];
 
         $res =  getModelMap($class)::searchKing($offset, $count,$params);
 
